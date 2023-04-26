@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+{% load static %}
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'psyh.css' %}"/>
+    <script src="{% static 'psyh.js' %}" type="text/javascript"></script>
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+<body>
+<main>
+    {% block content %}
+    {% endblock %}
+</main>
+</body>
+</html>

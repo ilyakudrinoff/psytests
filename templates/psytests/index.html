@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+      Заполните анкету
+{% endblock %}
+{% block content %}
+<form method="post" action="{% url 'psytests:index' %}" class="form-action" enctype="multipart/form-data" onclick="be_continued();">
+    {% csrf_token %}
+    {% for i in form %}
+        <b>{{ i.label_tag }}</b>
+        {{ i }}
+    {% endfor %}
+    <div><input type="checkbox" id="soglasie">Согласен принять участие в исследовании</input></div>
+    <div><input type="checkbox" id="konf">Политика конфиденциальности и обработки данных</input></div>
+    <button type="submit" class="button-click" id="button_continue">Продолжить</button>
+</form>
+<script> be_continued(); </script>
+{% endblock %}
