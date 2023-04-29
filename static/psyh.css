@@ -16,6 +16,30 @@ body {
     background-color: #689AD3;
 }
 
+.link {
+    padding: 10px 20px;
+    margin-bottom: 1em;
+    border: 1px solid black;
+    background-color: #dfdfdf;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: none;
+    display:flex;
+    flex-direction: column;
+}
+
+.test-q {
+    padding: 10px 20px;
+    margin-bottom: 1em;
+    border: 1px solid black;
+    background-color: #dfdfdf;
+    font-size: 14px;
+}
+
+.test {
+    margin: 1em;
+}
+
 .form-action {
     display: flex;
     flex-direction: column;

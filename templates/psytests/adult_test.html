@@ -3,4 +3,7 @@
       Список тестов
 {% endblock %}
 {% block content %}
+{% for i in tests %}
+      <a href="{% url 'psytests:test' i.pk %}" class="link">{{ i }}</a>
+{% endfor %}
 {% endblock %}

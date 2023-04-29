@@ -3,5 +3,17 @@
       Прохождение теста
 {% endblock %}
 {% block content %}
-
+      <h1>{{tests}}</h1>
+      <form method="post" action="{% url 'psytests:the_end' %}" class="form-action" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% for i in questions %}
+                  <div class="test-q">{{ i }}</div>
+                  {% for j in answers %}
+                        {% if i == j.question %}
+                              <div class="test"><input type="radio" name="{{ i }}" value="{{ j }}">{{ j }}</div>
+                        {% endif %}
+                  {% endfor %}
+            {% endfor %}
+            <button type="submit" class="button-click" id="button_continue">Завершить</button>
+      </form>
 {% endblock %}

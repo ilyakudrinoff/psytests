@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Psyhologes, Tests, Results
+from .models import Psyhologes, Tests, Questions, Answers, Results
 
 
 @admin.register(Psyhologes)
@@ -12,13 +12,24 @@ class PsyhologesAdmin(admin.ModelAdmin):
     empty_value_display = '-пусто-'
 
 
+class AnswersAdmin(admin.TabularInline):
+    model = Answers
+
+
+class QuestionsAdmin(admin.TabularInline):
+    model = Questions
+
+
 @admin.register(Tests)
 class TestsAdmin(admin.ModelAdmin):
-    list_display = ('name', 'question', 'answer', 'adult',)
-    list_editable = ('question',)
-    search_fields = ('question', 'answer', 'name',)
+    list_display = ('name', 'adult',)
+    search_fields = ('name',)
     list_filter = ('name', 'adult',)
     empty_value_display = '-пусто-'
+    inlines = [
+        QuestionsAdmin,
+        AnswersAdmin
+    ]
 
 
 @admin.register(Results)
