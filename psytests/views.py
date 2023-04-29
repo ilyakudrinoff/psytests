@@ -40,10 +40,17 @@ def test(request, test_id):
         'tests': tests,
         'answers': answers,
         'questions': questions,
-
     }
+    print('1')
     if request.method == 'POST':
-        f = Results(psyholog=, test=, question=, answer=).save(commit=False)
+        print('2')
+        for i in range(0, len(questions)):
+            print('3')
+            answer = request.POST.get[f'answer{i}']
+            question = Questions.objects.get(pk=i)
+            print(answer, question)
+            Results.objects.create(psyholog=psyh, test=tests, question=question, answer=answer).save()
+        return redirect('psytests:the_end')
     return render(request, 'psytests/test.html', context)
 
 

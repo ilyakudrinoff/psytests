@@ -1,5 +1,5 @@
 from django import forms
-from .models import Psyhologes
+from .models import Psyhologes, Tests
 
 
 class PsyhologesForm(forms.ModelForm):

@@ -7,10 +7,10 @@
       <form method="post" action="{% url 'psytests:the_end' %}" class="form-action" enctype="multipart/form-data">
             {% csrf_token %}
             {% for i in questions %}
-                  <div class="test-q">{{ i }}</div>
+                  <div class="test-q" id="question{{ forloop.counter }}">{{ i }}</div>
                   {% for j in answers %}
                         {% if i == j.question %}
-                              <div class="test"><input type="radio" name="{{ i }}" value="{{ j }}">{{ j }}</div>
+                              <div class="test"><input type="radio" name="answer{{ forloop.parentloop.counter }}" id="answer{{ forloop.parentloop.counter }}" value="{{ j }}">{{ j }}</div>
                         {% endif %}
                   {% endfor %}
             {% endfor %}
